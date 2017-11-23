@@ -1,0 +1,89 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require font-awesome
+ *= require_tree .
+ *= require_self
+ */
+body { 
+  background-image: url(vodafone.png); 
+  background-repeat: no-repeat;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  line-height: 50px; /* Vertically center the text there */
+  background-color: #e60000;
+}
+
+.btn-primary {
+    background: #682859;
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #682859;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #682859;
+    box-shadow: none;
+}
+.profile-dorp {
+  width: auto;
+  float: right;
+  position: relative;
+}
+.profile-dorp:hover .profile-dropdown-wrp {
+  display: block;
+}
+.profile-dorp .name-pr {
+  font-size: 13px;
+  color: #8c8c8c;
+  background-image: url(image_path("down-icon.png"));
+  background-repeat: no-repeat;
+  background-position: right 17px;
+  float: left;
+  width: auto;
+  padding: 10px 20px 0px 0px;
+}
+.profile-dorp .profile-dp {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  float: left;
+  overflow: hidden;
+  margin-left: 10px;
+}
+.profile-dorp .profile-dropdown-wrp {
+  width: 150px;
+  position: absolute;
+  right: 0px;
+  list-style: none;
+  top: 40px;
+  background-color: #fff;
+  margin: 0px;
+  padding: 0px;
+  display: none;
+  z-index: 99999;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.22) !important;
+}
+.profile-dorp .profile-dropdown-wrp li {
+  padding: 10px;
+}
+.profile-dorp .profile-dropdown-wrp li:hover {
+  background-color: #ececec;
+}
+

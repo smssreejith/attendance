@@ -1,0 +1,135 @@
+<div class="container" style="margin-top:100px;">
+  <div class="row">
+    <section>
+      <div class="wizard">
+        <div class="wizard-inner">
+          <div class="connecting-line"></div>
+          <ul class="nav nav-tabs" role="tablist">
+
+            <li role="presentation" class="active">
+              <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Home">
+                <span class="round-tab">
+                  <i class="fa fa-home"></i>
+                </span>
+              </a>
+            </li>
+
+            <li role="presentation" class="disabled">
+              <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Feedback">
+                <span class="round-tab">
+                  <i class="fa fa-pencil"></i>
+                </span>
+              </a>
+            </li>
+            <li role="presentation" class="disabled">
+              <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Photo">
+                <span class="round-tab">
+                  <i class="fa fa-photo"></i>
+                </span>
+              </a>
+            </li>
+
+            <li role="presentation" class="disabled">
+              <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Call">
+                <span class="round-tab">
+                  <i class="fa fa-phone"></i>
+                </span>
+              </a>
+            </li>
+            <li role="presentation" class="disabled">
+              <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Summary">
+                <span class="round-tab">
+                  <i class="fa fa-check"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <%= form_tag(details_path, method: "post", multipart: true,id: "details") do %>
+          <div class="tab-content">
+            <div class="tab-pane active" role="tabpanel" id="step1">
+              <div class="location"></div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                <input type="hidden" name="latitude" id="lat" />
+                <input type="hidden" name="longitude" id="lon" />
+                <input type="hidden" name="msisdn" value="<%= current_user.mobile %>" />
+                <input type="hidden" name="date" value="<%= Time.now %>" />
+              </ul>
+            </div>
+            <div class="tab-pane" role="tabpanel" id="step2">
+              <div class="form-group">
+                <label>Does retailer have sufficient stock?</label>
+              </div>
+              <div class="form-group">
+                <label class="radio-inline">
+                  <input type="radio" name="stock" value="yes">Yes</label>
+                <label class="radio-inline">
+                  <input type="radio" name="stock" value="no">No</label>
+              </div>
+              <div class="form-group">
+                <label>Are the add/bills displaying correctly?</label>
+              </div>
+              <div class="form-group">
+                <label class="radio-inline">
+                  <input type="radio" name="add" value="yes">Yes</label>
+                <label class="radio-inline">
+                  <input type="radio" name="add" value="no">No</label>
+              </div>
+              <div class="form-group">
+                <label for="">Comments any</label>
+                <textarea name="comment" class="form-control" rows="3" form="details"></textarea>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane" role="tabpanel" id="step3">
+              <input name="photo" type="file" accept="image/*" capture="camera" style="visibility: hidden;" id="fileID" onchange="readURL(this);"/>
+              <button type="button" class="btn btn-primary" onclick="document.getElementById('fileID').click(); return false;"><i class="fa fa-camera"> Capture</i></button>
+              <div><img class="blah hidden" src="#" alt="your image" /></div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane" role="tabpanel" id="step4">
+              <a href="tel:*121#"><button type="button" class="btn btn-primary"><i class="fa fa-phone"> Dial *121#</i></button></a>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane" role="tabpanel" id="complete">
+              <div class="row">
+                <div class="col-sm-12 col-md-12">
+                  <div><img class="blah hidden" src="#" alt="your image" /></div>
+                  <div class="location"></div>
+                  <div>
+                    <table class="table table-striped">
+                      <tr>
+                        <td>Does retailer have sufficient stock?</td>
+                        <td id="stock"></td>
+                      </tr>
+                      <tr>
+                        <td>Are the add/bills displaying correctly?</td>
+                        <td id="add"></td>
+                      </tr>
+                      <tr>
+                        <td>Comments</td>
+                        <td id="comment"></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td><button type="submit" class="btn btn-primary">Submit</button></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Attendance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="pull-right" style="margin-top:-90px">
+      <div class="profile-dorp">
+        <div class="name-pr">John smith</div>
+        <!--
+        <div class="profile-dp"><%=image_tag("dp.png")%></div>
+        -->
+        <div class="clearfix"></div>
+        <ul class="profile-dropdown-wrp">
+          <li>Profile</li>
+          <li>Logout</li>
+        </ul>
+      </div>
+    </div>
+    <%= yield %>
+      <!-- Main Footer -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="pull-right">
+          <span style="color:white;font-weight:bold;font:verdana;">Powered by&nbsp;&nbsp;&nbsp;</span> <%= image_tag "mobme-logo.png",size: "48x48" %>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
